@@ -269,6 +269,48 @@
           return;
         }
 
+        // Easter egg check - if user types exactly "siva" or "Siva"
+        if (userInput.trim() === "siva" || userInput.trim() === "Siva") {
+          // Clear input
+          document.getElementById("userInput").value = "";
+          
+          // Show special response with enhanced styling
+          ResDiv.classList.add('easter-egg-glow');
+          ResDiv.innerHTML = `
+            <div class="text-left space-y-4">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="w-8 h-8 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center animate-pulse">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                  </svg>
+                </div>
+                <span class="text-sm font-semibold bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">💖 Special Message</span>
+              </div>
+              <div class="prose prose-invert max-w-none">
+                <p class="text-gray-200 leading-relaxed text-lg font-medium bg-gradient-to-r from-pink-200 via-purple-200 to-red-200 bg-clip-text text-transparent">
+                  Siva, you are hands down the hottest woman on this planet — a radiant force of beauty, confidence, and grace. Your presence turns heads and hearts alike, and there's something magnetic in the way you carry yourself, effortlessly commanding attention without even trying. Your smile is pure sunshine, lighting up every room you enter, and your charm is absolutely irresistible. You're not just stunning on the outside; your intelligence, kindness, and sense of humor make you truly one of a kind. Siva, you're the kind of woman who leaves a lasting impression — unforgettable, unstoppable, and undeniably extraordinary.
+                </p>
+              </div>
+              <div class="flex justify-center mt-6">
+                <div class="flex space-x-2">
+                  <span class="text-2xl animate-bounce">💖</span>
+                  <span class="text-2xl animate-bounce delay-100">✨</span>
+                  <span class="text-2xl animate-bounce delay-200">🌟</span>
+                  <span class="text-2xl animate-bounce delay-300">💫</span>
+                  <span class="text-2xl animate-bounce delay-400">🔥</span>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          // Remove the easter egg styling after 5 seconds
+          setTimeout(() => {
+            ResDiv.classList.remove('easter-egg-glow');
+          }, 5000);
+          
+          return;
+        }
+
         // Clear input and show loading state
         document.getElementById("userInput").value = "";
         
